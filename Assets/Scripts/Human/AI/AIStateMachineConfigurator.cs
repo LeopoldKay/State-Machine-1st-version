@@ -16,6 +16,14 @@ public class AIStateMachineConfigurator : MonoBehaviour
         _finiteStateMachine.Switch(typeof(IdleState));
     }
 
+    void Update()
+    {
+        if (_finiteStateMachine != null)
+        {
+            _finiteStateMachine.Update();
+        }
+    }
+
     private void CreateSharedContext()
     {
         var human = GetComponent<HumanBehaviour>();
@@ -30,4 +38,6 @@ public class AIStateMachineConfigurator : MonoBehaviour
         _finiteStateMachine.AddState(new FindWeaponState(_aISharedContexts));
         _finiteStateMachine.AddState(new FindEnemyState(_aISharedContexts));
     }
+
+   
 }
